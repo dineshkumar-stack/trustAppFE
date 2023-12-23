@@ -1,0 +1,142 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bg {
+  background: url(../Images/townsend-walton-lQ9NstOAkyo-unsplash.jpg) no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -3;
+}
+
+.bg:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #000;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+@keyframes sf-fly-by-1 {
+  from {
+    transform: translateZ(-600px);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translateZ(0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes sf-fly-by-2 {
+  from {
+    transform: translateZ(-1200px);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translateZ(-600px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes sf-fly-by-3 {
+  from {
+    transform: translateZ(-1800px);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: translateZ(-1200px);
+    opacity: 0.5;
+  }
+}
+
+
+.star-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 600px;
+  -webkit-perspective: 600px;
+  z-index: -1;
+}
+
+.star-field .layer {
+  box-shadow: -411px -476px #f10202, 777px -407px #da0606, -387px -477px #e22d2d, -91px -235px #d4d4d4, 491px -460px #f7f7f7, 892px -128px #f7f7f7, 758px -277px #ededed, 596px 378px #cccccc, 647px 423px whitesmoke, 183px 389px #c7c7c7,
+    524px -237px #b10a0a, 679px -535px #e90f0f, 158px 399px #e22a2a, 157px 249px #f31212, 81px -450px #ebebeb, 719px -360px #c2c2c2, -499px 473px #c50404, -158px -349px #d4d4d4, 870px -134px #cfcfcf, 446px 404px #c2c2c2,
+    950px 490px #850808, 414px 507px #e61111, -12px 246px #570606, -384px 369px #ff0d0d, 641px -413px #d40b0b, 822px 516px #dbdbdb, 449px 132px #c2c2c2, 727px 146px #f51414, -315px -488px #e6e6e6, 952px -70px #e3e3e3,
+    -869px -29px #dd1818, 502px 80px #dedede, 764px 342px #e61a1a, -150px -380px #dbdbdb, 654px -426px #e3e3e3, -325px -263px #df2323, 755px -447px #eb0d0d, 729px -177px #c2c2c2, -682px -391px #e6e6e6, 554px -176px #ededed,
+    -85px -428px #e20b0b, 714px 55px #e8e8e8, 359px -285px #db0a0a, -362px -508px #e40c0c, 468px -265px #fcfcfc, 74px -500px #ee1616, -514px 383px #dbdbdb, 730px -92px #ee0808, -112px 287px #c9c9c9, -853px 79px #d6d6d6,
+    828px 475px #eb1717, -681px 13px #fc3d3d, -176px 209px #f0f0f0, 758px 457px #af0505, -383px -454px #fa1010, 813px 179px #f70808, 608px 98px whitesmoke, -860px -65px #c4c4c4, -572px 272px #f7f7f7, 459px 533px #fcfcfc,
+    624px -481px #e01818, 790px 477px #dedede, 731px -403px #ec1616, 70px -534px #cccccc, -23px 510px #cfcfcf, -652px -237px rgb(228, 8, 8), -690px 367px #d1d1d1, 810px 536px #d60909, 774px 293px #c9c9c9, -362px 97px #c2c2c2,
+    563px 47px #b90d0d, 313px 475px #e0e0e0, 839px -491px #d81010, -217px 377px #dd0a0a, -581px 239px #c2c2c2, -857px 72px #cccccc, -23px 340px #dedede, -837px 246px white, 170px -502px #cfcfcf, 822px -443px #e0e0e0, 795px 497px #e0e0e0,
+    -814px -337px #d10c0c, 206px -339px #e21111, -779px 108px #eb1717, 808px 2px #ad0c0c, 665px 41px #d4d4d4, -564px 64px #cccccc, -380px 74px #f05a5a, -369px -60px #f7f7f7, 47px -495px #e22121, -383px 368px #e02d2d, 419px 288px #d1d1d1,
+    -598px -50px #f01414, -833px 187px #cc1717, 378px 325px rgb(233, 74, 74), -703px 375px #e90d0d, 392px 520px #d9d9d9, -492px -60px #f01212, 759px 288px #ebebeb, 98px -412px #c4c4c4, -911px -277px #c9c9c9;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 4px;
+  width: 4px;
+  border-radius: 2px;
+}
+
+.star-field .layer:nth-child(1) {
+  animation: sf-fly-by-1 8s linear infinite;
+}
+
+.star-field .layer:nth-child(2) {
+  animation: sf-fly-by-2 8s linear infinite;
+}
+
+.star-field .layer:nth-child(3) {
+  animation: sf-fly-by-3 20s linear infinite;
+}
