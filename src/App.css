@@ -39,7 +39,7 @@
 }
 
 .bg {
-  background: url(../Images/townsend-walton-lQ9NstOAkyo-unsplash.jpg) no-repeat;
+  background: url(../Images/martin-sanchez-j2c7yf223Mk-unsplash.jpg) no-repeat;
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -58,7 +58,7 @@
   z-index: -1;
   top: 0;
   left: 0;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 @keyframes sf-fly-by-1 {

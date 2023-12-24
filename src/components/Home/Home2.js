@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Modal, Button, Form } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Modal,
+  Button,
+  Form,
+  InputGroup,
+} from "react-bootstrap";
 import myImg from "../../Assets/pp2.svg";
 import Tilt from "react-parallax-tilt";
 import Spinner from "react-bootstrap/Spinner";
@@ -222,40 +230,51 @@ function Home2() {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName">
-              <Form.Label>
-                Name<span style={{ color: "red" }}>*</span>:
-              </Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter name"
-                name="name"
-                value={formData.name}
-                onChange={(e) => {
-                  setFormData({ ...formData, name: e.target.value });
-                  setErrors({ ...errors, name: "" }); // Clear the error when user starts typing
-                }}
-                required
-              />
+              <InputGroup>
+                <InputGroup.Text>
+                  Name<span style={{ color: "red" }}>*</span>:
+                </InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter name"
+                  name="name"
+                  value={formData.name}
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    setErrors({ ...errors, name: "" }); // Clear the error when user starts typing
+                  }}
+                  required
+                />
+              </InputGroup>
               {errors.name && (
                 <Form.Text className="text-danger">{errors.name}</Form.Text>
               )}
             </Form.Group>
 
-            <Form.Group controlId="formBloodType">
-              <Form.Label>
-                Blood Type<span style={{ color: "red" }}>*</span> :
-              </Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter blood type"
-                name="bloodType"
-                value={formData.bloodType}
-                onChange={(e) => {
-                  setFormData({ ...formData, bloodType: e.target.value });
-                  setErrors({ ...errors, bloodType: "" }); // Clear the error when user starts typing
-                }}
-                required
-              />
+            <Form.Group className="my-3" controlId="formBloodType">
+              <InputGroup>
+                <InputGroup.Text>
+                  Blood Type<span style={{ color: "red" }}>*</span>:
+                </InputGroup.Text>
+
+                <Form.Control
+                  type="text"
+                  placeholder="Enter blood type"
+                  name="bloodType"
+                  as="select"
+                  value={formData.bloodType}
+                  onChange={(e) => {
+                    setFormData({ ...formData, bloodType: e.target.value });
+                    setErrors({ ...errors, bloodType: "" }); // Clear the error when user starts typing
+                  }}
+                  required
+                >
+                  <option value="other">Other</option>
+                  <option value="a1+">A1+</option>
+                  <option value="A2-">A1-</option>
+                </Form.Control>
+              </InputGroup>
+
               {errors.bloodType && (
                 <Form.Text className="text-danger">
                   {errors.bloodType}
@@ -264,103 +283,101 @@ function Home2() {
             </Form.Group>
 
             <Form.Group controlId="formContact">
-              <Form.Label>
-              Contact Number<span style={{ color: "red" }}>*</span> :
-              </Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter Contact Number"
-                name="contact"
-                value={formData.contact}
-                onChange={(e) => {
-                  setFormData({ ...formData, contact: e.target.value });
-                  setErrors({ ...errors, contact: "" }); // Clear the error when user starts typing
-                }}
-                required
-              />
+              <InputGroup>
+                <InputGroup.Text>
+                  Contact<span style={{ color: "red" }}>*</span>:
+                </InputGroup.Text>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter Contact Number"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={(e) => {
+                    setFormData({ ...formData, contact: e.target.value });
+                    setErrors({ ...errors, contact: "" }); // Clear the error when user starts typing
+                  }}
+                  required
+                />
+              </InputGroup>
+
               {errors.contact && (
-                <Form.Text className="text-danger">
-                  {errors.contact}
-                </Form.Text>
+                <Form.Text className="text-danger">{errors.contact}</Form.Text>
               )}
             </Form.Group>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {/* Add other Form.Group elements for other fields */}
             {/* Age */}
-            <Form.Group controlId="formAge">
-              <Form.Label>Age:</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter age"
-                name="age"
-                value={formData.age}
-                onChange={handleChange}
-              />
-            </Form.Group>
+            <Row className="align-items-center">
+              <Col sm={3} className="my-3">
+                <Form.Group controlId="formAge">
+                  <Form.Label visuallyHidden>Age:</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Age"
+                    name="age"
+                    value={formData.age}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+              </Col>
 
-            {/* Weight */}
-            <Form.Group controlId="formWeight">
-              <Form.Label>Weight (in kg):</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter weight"
-                name="weight"
-                value={formData.weight}
-                onChange={handleChange}
-              />
-            </Form.Group>
+              <Col sm={3} className="my-3">
+                <Form.Group controlId="formWeight">
+                  <Form.Label visuallyHidden>Weight</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Weight"
+                    name="weight"
+                    value={formData.weight}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+              </Col>
 
-            {/* Gender */}
-            <Form.Group controlId="formGender">
-              <Form.Label>Gender:</Form.Label>
-              <Form.Control
-                as="select"
-                name="gender"
-                value={formData.gender}
-                onChange={handleChange}
-              >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </Form.Control>
-            </Form.Group>
+              <Col sm={6} className="my-1">
+                <Form.Label visuallyHidden>Gender</Form.Label>
+                <InputGroup controlId="formGender">
+                  <InputGroup.Text>Gender</InputGroup.Text>
+                  <Form.Control
+                    placeholder="Gender"
+                    as="select"
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                  >
+                    <option value="other">Other</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </Form.Control>
+                </InputGroup>
+              </Col>
+            </Row>
 
             {/* Last Donation Date */}
             <Form.Group controlId="formLastDonationDate">
-              <Form.Label>Last Donation Date:</Form.Label>
-              <Form.Control
-                type="date"
-                name="lastDonationDate"
-                value={formData.lastDonationDate}
-                onChange={handleChange}
-              />
+              <InputGroup>
+              <InputGroup.Text>Last Donation Date:</InputGroup.Text>
+                <Form.Control
+                  type="date"
+                  name="lastDonationDate"
+                  value={formData.lastDonationDate}
+                  onChange={handleChange}
+                />
+              </InputGroup>
             </Form.Group>
 
             {/* donateTotalCount */}
-            <Form.Group controlId="formAge">
-              <Form.Label>How many times donated:</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Donate Count"
-                name="donateTotalCount"
-                value={formData.donateTotalCount}
-                onChange={handleChange}
-              />
+
+            <Form.Group className="my-3" controlId="formAge">
+              <InputGroup>
+                <InputGroup.Text>How many times donated:</InputGroup.Text>
+                <Form.Control
+                  type="number"
+                  placeholder="Donate Count"
+                  name="donateTotalCount"
+                  value={formData.donateTotalCount}
+                  onChange={handleChange}
+                />
+              </InputGroup>
             </Form.Group>
 
             {/* Health Conditions */}
@@ -375,18 +392,43 @@ function Home2() {
               />
             </Form.Group>
 
-            {/* Address */}
-            <Form.Group controlId="formAddressStreet">
-              <Form.Label>Street:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter street address"
-                name="street"
-                value={formData.address.street}
-                onChange={handleAddressChange}
-              />
-            </Form.Group>
-            {/* ...Other address fields: city, state, zipCode, country */}
+            {/* address fields: city, state, zipCode, country */}
+
+            <Row className="my-3">
+              <Col xs={5}>
+                <Form.Group controlId="formCity">
+                  <Form.Control
+                    type="text"
+                    placeholder="City"
+                    name="city"
+                    value={formData.address.city}
+                    onChange={handleAddressChange}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group controlId="formState">
+                  <Form.Control
+                    type="text"
+                    placeholder="State"
+                    name="state"
+                    value={formData.address.state}
+                    onChange={handleAddressChange}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                <Form.Group controlId="formZipCode">
+                  <Form.Control
+                    type="text"
+                    placeholder="ZipCode"
+                    name="zipCode"
+                    value={formData.address.zipCode}
+                    onChange={handleAddressChange}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
 
             {/* Additional Information */}
             <Form.Group controlId="formAdditionalInfo">
@@ -403,6 +445,8 @@ function Home2() {
 
             <Button
               variant="primary"
+              xs="auto"
+              className="my-2"
               type="submit"
               disabled={isLoading}
               onClick={!isLoading ? handleSubmit : null}
@@ -422,7 +466,7 @@ function Home2() {
           </Form>
         </Modal.Body>
       </Modal>
-      <ToastContainer /> 
+      <ToastContainer />
     </Container>
   );
 }

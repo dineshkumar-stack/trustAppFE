@@ -14,6 +14,8 @@ html {
   --imp-text-color: #ce4993;
 }
 
+/* like color #ffffff */
+
 .purple {
   color: var(--imp-text-color) !important;
 }
@@ -160,7 +162,7 @@ button:focus {
 }
 
 .navbar-nav .nav-link {
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   padding-right: 1rem !important;
   padding-left: 1rem !important;
 }
@@ -187,7 +189,7 @@ button:focus {
   z-index: 1;
 }
 
-.navbar-nav .nav-item a::after {
+/* .navbar-nav .nav-item a::after {
   content: "";
   position: relative;
   display: block;
@@ -203,7 +205,7 @@ button:focus {
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
-}
+} */
 
 /* --------- */
 /* Home section */
@@ -265,7 +267,7 @@ button:focus {
 
 .home-content {
   padding: 9rem 0 2rem !important;
-  color: #ffe4f2;
+  color: #ffffff;
   text-align: left;
 }
 
@@ -280,17 +282,17 @@ button:focus {
 }
 
 .main-name {
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
 }
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
 }
 
 @media (max-width: 767px) {
@@ -323,7 +325,7 @@ button:focus {
 }
 
 .home-about-description {
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   padding-top: 100px !important;
   padding-bottom: 20px !important;
   text-align: center;
@@ -338,7 +340,7 @@ button:focus {
 .home-about-social {
   text-align: center !important;
   padding-top: 25px;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
 }
 
 .home-about-social-links {
@@ -427,7 +429,7 @@ button:focus {
 
 .footer h3 {
   font-size: 1em;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
 }
@@ -460,7 +462,7 @@ button:focus {
 
 .project-card-view {
   box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
   transition: all 0.5s ease 0s !important;
@@ -483,7 +485,7 @@ button:focus {
 .blog-card-view {
   background-color: transparent !important;
   box-shadow: 0 3px 3px 2px rgba(145, 77, 161, 0.459) !important;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
 }
@@ -531,7 +533,7 @@ button:focus {
   box-shadow: none !important;
 }
 .project-heading {
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   font-size: 2.3em !important;
   font-weight: 500 !important;
   padding-top: 10px !important;
@@ -546,7 +548,7 @@ button:focus {
   padding-top: 150px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
 }
 
 .tech-icons {
@@ -582,7 +584,7 @@ button:focus {
 
 .quote-card-view {
   border: none !important;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
   background-color: transparent !important;
 }
 
@@ -606,7 +608,7 @@ button:focus {
   padding-top: 110px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
-  color: #ffe4f2 !important;
+  color: #ffffff !important;
 }
 
 .resume {

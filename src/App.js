@@ -32,12 +32,12 @@ function App() {
     <Router>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <div class="bg"></div>
+        <div className="bg"></div>
 
-        <div class="star-field">
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
+        <div className="star-field">
+          <div className="layer"></div>
+          <div className="layer"></div>
+          <div className="layer"></div>
         </div>
         <Navbar />
         <ScrollToTop />
