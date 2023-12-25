@@ -273,8 +273,15 @@ function Home2() {
                   required
                 >
                   <option value="other">Other</option>
-                  <option value="a1+">A1+</option>
-                  <option value="A2-">A1-</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+
                 </Form.Control>
               </InputGroup>
 
