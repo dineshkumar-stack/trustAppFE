@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineUser,
+  AiOutlineFundProjectionScreen,
 } from "react-icons/ai";
 
 // import { CgFileDocument } from "react-icons/cg";
@@ -65,18 +66,18 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            {/* <Nav.Item>
+            <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/project"
+                to="/admin"
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />{" "}
-                Projects
+                Admin
               </Nav.Link>
-            </Nav.Item> */}
+            </Nav.Item>
 
             {/* <Nav.Item>
               <Nav.Link

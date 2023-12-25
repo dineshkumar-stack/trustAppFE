@@ -61,6 +61,9 @@ function Home2() {
     if (!formData.contact.trim()) {
       formErrors.contact = "Contact is required";
     }
+    if (!formData.gender.trim()) {
+      formErrors.gender = "Gender is required";
+    }
     // Check other required fields and add errors if necessary
 
     if (Object.keys(formErrors).length > 0) {
@@ -298,6 +301,7 @@ function Home2() {
                   }}
                   required
                 />
+                
               </InputGroup>
 
               {errors.contact && (
@@ -320,7 +324,7 @@ function Home2() {
                 </Form.Group>
               </Col>
 
-              <Col  className="my-3">
+              <Col className="my-3">
                 <Form.Group controlId="formWeight">
                   <Form.Label visuallyHidden>Weight</Form.Label>
                   <Form.Control
@@ -342,12 +346,18 @@ function Home2() {
                     as="select"
                     name="gender"
                     value={formData.gender}
-                    onChange={handleChange}
-                  >
+                    onChange={(e) => {
+                      setFormData({ ...formData, gender: e.target.value });
+                      setErrors({ ...errors, gender: "" }); // Clear the error when user starts typing
+                    }}
+                    required                  >
                     <option value="other">Other</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </Form.Control>
+                  {errors.gender && (
+                <Form.Text className="text-danger">{errors.gender}</Form.Text>
+              )}
                 </InputGroup>
               </Col>
             </Row>
@@ -355,7 +365,7 @@ function Home2() {
             {/* Last Donation Date */}
             <Form.Group controlId="formLastDonationDate">
               <InputGroup>
-              <InputGroup.Text>Last Donation Date:</InputGroup.Text>
+                <InputGroup.Text>Last Donation Date:</InputGroup.Text>
                 <Form.Control
                   type="date"
                   name="lastDonationDate"
