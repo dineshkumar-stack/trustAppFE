@@ -459,6 +459,7 @@ function Home2() {
                 onChange={handleChange}
               />
             </Form.Group>
+            <div class="d-grid gap-2 col-6 mx-auto">
 
             <Button
               variant="primary"
@@ -480,6 +481,7 @@ function Home2() {
                 "Submit"
               )}
             </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>

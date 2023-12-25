@@ -8,8 +8,10 @@ import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineUser,
-  AiOutlineFundProjectionScreen,
 } from "react-icons/ai";
+
+import { RiAdminFill } from "react-icons/ri";
+
 
 // import { CgFileDocument } from "react-icons/cg";
 
@@ -72,7 +74,7 @@ function NavBar() {
                 to="/admin"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineFundProjectionScreen
+                <RiAdminFill
                   style={{ marginBottom: "2px" }}
                 />{" "}
                 Admin
