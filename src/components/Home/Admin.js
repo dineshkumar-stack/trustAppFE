@@ -8,13 +8,15 @@ import { RiFileExcel2Line } from "react-icons/ri";
 import { MdBloodtype } from "react-icons/md";
 import { MdOutlineContactPage } from "react-icons/md";
 import { IoMdContact } from "react-icons/io";
-
+// import Spinner from "react-bootstrap/Spinner";
 
 const AdminPage = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10); // Number of items per page
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,8 +25,11 @@ const AdminPage = () => {
           "https://trustappbe.onrender.com/api/DonationFroms"
         );
         setData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError(error);
+        setLoading(false);
       }
     };
 
@@ -74,7 +79,7 @@ const AdminPage = () => {
       <div>
         <div className="container mt-4">
           <Row>
-              <h1 className="mt-3">Donor Information</h1>
+            <h1 className="mt-3">Donor Information</h1>
             <Col>
               <input
                 type="text"
@@ -86,8 +91,7 @@ const AdminPage = () => {
             </Col>
             <Col>
               <button className="btn btn-primary mb-3" onClick={downloadExcel}>
-                Download <RiFileExcel2Line
-                  style={{ marginBottom: "2px" }}/>
+                Download <RiFileExcel2Line style={{ marginBottom: "2px" }} />
               </button>
             </Col>
           </Row>
@@ -98,7 +102,9 @@ const AdminPage = () => {
                   <th>Contact No</th>
                   <th>Donor_Name</th>
                   <th>Age</th>
-                  <th><MdBloodtype style={{ marginBottom: "2px" }} /></th>
+                  <th>
+                    <MdBloodtype style={{ marginBottom: "2px" }} />
+                  </th>
                   <th>Gender</th>
                   <th>Last Donate</th>
                   <th>State</th>
@@ -108,27 +114,50 @@ const AdminPage = () => {
                   {/* Add more table headers based on your data */}
                 </tr>
               </thead>
-              <tbody>
-                {currentItems.map((item) => (
-                  <tr key={item.id}>
-                    <td><MdOutlineContactPage style={{ marginBottom: "2px" }} />{item.contact}</td>
-                    <td><IoMdContact style={{ marginBottom: "2px" }} /> {item.name}</td>
-                    <td>{item.age}</td>
-                    <td>{item.bloodType}</td>
-                    <td>{item.gender}</td>
-                    <td>{formatDate(item.lastDonationDate)}</td>
-                    <td>{item.address.state}</td>
-                    <td>{item.address.zipCode}</td>
-                    <td>{formatDate(item.timeStamp)}</td>
+              {loading ? (
+                <button
+                  class="btn btn-primary mt-4 text-center align-items-center"
+                  type="button"
+                  disabled
+                >
+                  <span
+                    class="spinner-grow spinner-grow-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="sr-only">Loading...</span>
+                </button>
+              ) : error ? (
+                <p>Error: {error.message}</p>
+              ) : (
+                <tbody>
+                  {currentItems.map((item) => (
+                    <tr key={item.id}>
+                      <td>
+                        <MdOutlineContactPage style={{ marginBottom: "2px" }} />
+                        {item.contact}
+                      </td>
+                      <td>
+                        <IoMdContact style={{ marginBottom: "2px" }} />{" "}
+                        {item.name}
+                      </td>
+                      <td>{item.age}</td>
+                      <td>{item.bloodType}</td>
+                      <td>{item.gender}</td>
+                      <td>{formatDate(item.lastDonationDate)}</td>
+                      <td>{item.address.state}</td>
+                      <td>{item.address.zipCode}</td>
+                      <td>{formatDate(item.timeStamp)}</td>
 
-                    {/* Add more table data cells based on your data */}
-                  </tr>
-                ))}
-              </tbody>
+                      {/* Add more table data cells based on your data */}
+                    </tr>
+                  ))}
+                </tbody>
+              )}
             </table>
           </div>
           {/* Pagination */}
-          <nav>
+          <nav className="mt-4">
             <ul className="pagination justify-content-center">
               <li className={`page-item ${currentPage === 1 && "disabled"}`}>
                 <button
@@ -140,7 +169,7 @@ const AdminPage = () => {
               </li>
               <li className="page-item">
                 <button className="page-link" disabled>
-                {currentPage}
+                  {currentPage}
                 </button>
               </li>
               <li
