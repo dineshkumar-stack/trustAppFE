@@ -115,20 +115,19 @@ const AdminPage = () => {
                 </tr>
               </thead>
               {loading ? (
-                <button
-                  class="btn btn-primary mt-4 text-center align-items-center"
-                  type="button"
-                  disabled
-                >
-                  <span
-                    class="spinner-grow spinner-grow-sm"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only">Loading...</span>
-                </button>
+                <tr>
+                  <td colspan="9">
+                    <div class="text-center">
+                      <div class="spinner-grow" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
               ) : error ? (
-                <p>Error: {error.message}</p>
+                <tr>
+                  <td colspan="9">Error: {error.message}</td>
+                </tr>
               ) : (
                 <tbody>
                   {currentItems.map((item) => (
