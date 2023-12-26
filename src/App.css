@@ -39,7 +39,7 @@
 }
 
 .bg {
-  background: url(../Images/martin-sanchez-j2c7yf223Mk-unsplash.jpg) no-repeat;
+  background: url(../Images/image2.jpg) no-repeat;
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -59,6 +59,12 @@
   top: 0;
   left: 0;
   opacity: 0.6;
+}
+
+@media only screen and (max-width: 767px) {
+  .bg {
+    background-image: url(../Images/image7.jpg); /* Replace with your mobile background image URL */
+  }
 }
 
 @keyframes sf-fly-by-1 {

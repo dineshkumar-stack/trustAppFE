@@ -4,6 +4,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
+import Footer from "../Footer";
+
 
 function Home() {
   return (
@@ -32,6 +34,8 @@ function Home() {
         </Container>
       </Container>
       <Home2 />
+      <Footer />
+
     </section>
   );
 }

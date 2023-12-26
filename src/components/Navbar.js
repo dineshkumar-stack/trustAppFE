@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 // import { ImBlog } from "react-icons/im";
 import {
   AiOutlineHome,
-  AiOutlineUser,
 } from "react-icons/ai";
+import { BiDonateHeart } from "react-icons/bi";
+
 
 import { RiAdminFill } from "react-icons/ri";
 
@@ -64,7 +65,7 @@ function NavBar() {
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                <BiDonateHeart style={{ marginBottom: "2px" }} /> About
               </Nav.Link>
             </Nav.Item>
 
